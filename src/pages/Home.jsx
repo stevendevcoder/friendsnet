@@ -1,18 +1,11 @@
-import React from 'react'
-import { useAuthState } from 'react-firebase-hooks/auth'
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const style = {
-
-}
+const style = {};
 
 const Home = () => {
-  const [user] = useAuthState()
+  const [user] = useAuthState();
 
-  console.log(user.displayName)
-  
-  return (
-    <div>Home</div>
-  )
-}
+  return <div>Home</div>;
+};
 
-export default Home
+export default Home;

@@ -32,7 +32,7 @@ const Login = () => {
   const handleGoogleSumbit = async () => {
     try {
       await loginWithGoogle()
-      navigate(PRIVATE_ROUTES.HOME)
+      navigate(PRIVATE_ROUTES.DASHBOARD)
     } catch (error) {
       console.log("Error: ", error)
     }
@@ -41,13 +41,14 @@ const Login = () => {
   const onSubmitForm = async (data) => {
     try {
       await loginWithEmail(data.email, data.password)
-      navigate(PRIVATE_ROUTES.HOME)
+      navigate(PRIVATE_ROUTES.DASHBOARD)
     } catch(error) {
-      const errMsg = error.message.includes('wrong-password') ? 'Contraseña incorrecta' : 'Usuario no encontrado'
-      console.log(errMsg)
+      const errMsg = error.message.includes('wrong-password') ? 'Contraseña incorrecta' : error.message
       setFirebaseErr(errMsg)
     }
   }
+
+  console.log("Errors: ",errors?.email, " FirebaseErr: ", firebaseErr) 
 
   return (
     <div className={style.container + ` hola`}>
@@ -65,10 +66,10 @@ const Login = () => {
             {...register('email', { 
               required: 'Escribí pues hpta', 
               pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: 'El email no es valido panita'
               }
             })}
+            placeholder="tucorreo@ejemplo.com"
             className={style.input} 
             type="text"
           />
@@ -83,6 +84,7 @@ const Login = () => {
                 message: 'Ponete una contraseña más larga hpta!'
               }
             })}
+            placeholder="Tu contraseña"
             className={style.input} 
             type="password" 
           />

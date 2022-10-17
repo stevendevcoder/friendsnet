@@ -17,7 +17,9 @@ function App() {
 
         {/* private routes */}
         <Route element={<Authguard />}>
-          <Route path={PRIVATE_ROUTES.HOME} element={<Home />} />
+          <Route path={PRIVATE_ROUTES.DASHBOARD} element={<Home />} >
+            
+          </Route>
         </Route>
         <Route path='*' element={<NotFound/>} />
       </Routes>

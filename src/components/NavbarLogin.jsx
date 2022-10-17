@@ -16,7 +16,7 @@ const NavbarLogin = () => {
       <h1 className={style.title}>Friendsnet</h1>
 
       <ul className={style.links}>
-        <NavLink to={PRIVATE_ROUTES.HOME} className={style.li}>Home</NavLink>
+        <NavLink to={PRIVATE_ROUTES.DASHBOARD} className={style.li}>Home</NavLink>
         <NavLink to={PUBLIC_ROUTES.LOGIN} className={({isActive})=>(isActive ? (style.li+' '+style.selected):style.li)}>Iniciar sesion</NavLink>
         <NavLink to={PUBLIC_ROUTES.REGISTER} className={({isActive})=>(isActive ? (style.li+' '+style.selected):style.li)}>Crear Cuenta</NavLink>
 

@@ -33,21 +33,23 @@ const Register = () => {
   const handleGoogleSumbit = async () => {
     try {
       await loginWithGoogle()
-      navigate(PRIVATE_ROUTES.HOME)
+      navigate(PRIVATE_ROUTES.DASHBOARD)
     } catch (error) {
-      setFirebaseErr(error.message)
+      setFirebaseErr(error)
     }
   }
   
   const onSubmitForm = async (data) => {
     try {
       await registerWithEmail(data.email, data.password)
-      navigate(PRIVATE_ROUTES.HOME)
+      navigate(PRIVATE_ROUTES.DASHBOARD)
     } catch(error) {
-      const errMsg = error.message.includes('already-in-use') ? 'El email ya está en uso' : 'Datos no validos'
+      const errMsg = error.message.includes('already-in-use') ? 'El email ya está en uso' : error.message
       setFirebaseErr(errMsg)
     }
   }
+
+  console.log("Errors: ",errors?.email, " FirebaseErr: ", firebaseErr) 
 
   return (
     <div className={style.container + ` hola`}>
@@ -62,7 +64,7 @@ const Register = () => {
           <label className='mt-10 text-black'>Email:</label>
           <input 
             {...register('email', { 
-              required: 'Escribí pues hpta', 
+              required: 'Escrie pues mano', 
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 message: 'El email no es valido panita'
@@ -79,7 +81,7 @@ const Register = () => {
               required: true,
               minLength: {
                 value: 6,
-                message: 'Ponete una contraseña más larga hpta!'
+                message: 'Ponete una contraseña más larga'
               }
             })}
             className={style.input} 

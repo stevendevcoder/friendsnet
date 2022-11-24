@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { PRIVATE_ROUTES } from "../routes";
 import { UserAuth } from "../context/AuthContext";
 import { auth } from "../firebase/firebase";
+import { TabTitle } from "../utilities/FunctionTitle";
 
 import { useForm } from "react-hook-form";
 
@@ -22,6 +23,7 @@ const style = {
 };
 
 const Login = () => {
+  TabTitle("Login");
   const navigate = useNavigate();
   const { loginWithGoogle, loginWithEmail } = UserAuth()
 

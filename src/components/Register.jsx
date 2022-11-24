@@ -9,6 +9,7 @@ import { auth } from "../firebase/firebase";
 
 import { useForm } from "react-hook-form";
 import { FirebaseError } from "firebase/app";
+import { TabTitle } from "../utilities/FunctionTitle";
 
 const style = {
   container: `font-sans w-full h-screen bg-[#0b1120]`,
@@ -23,6 +24,7 @@ const style = {
 };
 
 const Register = () => {
+  TabTitle("Register");
   const navigate = useNavigate();
   const { registerWithEmail, loginWithGoogle } = UserAuth()
 

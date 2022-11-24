@@ -7,11 +7,11 @@ import { CgProfile } from 'react-icons/cg'
 import { MdSettings } from 'react-icons/md'
 
 const style = {
-  navbar: `h-screen w-[230px] flex flex-col justify-between items-left bg-[#0b1120] p-[30px] shadow-lg shadow-white-500/10 border-r border-gray-800`,
+  navbar: `h-screen w-[230px] flex flex-col justify-between items-left bg-[#0b1120] p-[25px] shadow-lg shadow-white-500/10 border-r border-gray-800`,
   title: `text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 text-left`,
-  links: `flex gap-[20px] text-[#fff] justify-start items-center`,
-  sections: `flex flex-col gap-[40px]`
-}
+  links: `flex gap-[20px] text-[#fff] justify-start items-center p-4 rounded-[12px] transition duration-500 hover:bg-[#121c36]`,
+  sections: `flex flex-col gap-[20px]`,
+};
 
 const NavbarHome = () => {
   return (
